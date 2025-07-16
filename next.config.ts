@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+// next.config.js
+import path from 'path'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = {
+  webpack(config: { resolve: { alias: { [x: string]: string } } }) {
+    config.resolve.alias['framer-motion'] = path.resolve(__dirname, 'src/lib/noop-motion.ts')
+    return config
+  }
+}

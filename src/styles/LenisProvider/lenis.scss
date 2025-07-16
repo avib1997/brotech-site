@@ -1,0 +1,15 @@
+/* src/styles/lenis.scss */
+// ⚠️
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+[data-lenis] {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

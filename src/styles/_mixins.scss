@@ -1,0 +1,13 @@
+//src/styles/_mixins.scss
+// דוגמה לאפקט "זכוכית"
+@mixin glass($blur: 0.75rem, $sat: 160%) {
+  // background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur($blur) saturate($sat);
+  -webkit-backdrop-filter: blur($blur) saturate($sat);
+}
+.card {
+  @include glass;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+}

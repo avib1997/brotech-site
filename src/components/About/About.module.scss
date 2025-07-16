@@ -1,0 +1,84 @@
+/* ──────── src/components/About/About.module.scss ──────── */
+
+.aboutSection {
+  padding: 1rem;
+  color: #e0f7ff;
+  text-align: center;
+  scroll-margin-top: 10rem;
+  background: transparent;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  color: #89aeff;
+  //   text-shadow: 0 0 10px #00c8ff, 0 0 30px #00c8ff;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paragraphContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: right;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.paragraph {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.paragraphTitle {
+  display: block;
+  font-size: 1.5rem;
+  color: #89aeff;
+  //   text-shadow: 0 0 10px #00c8ff;
+  margin-bottom: 0.75rem;
+}
+
+.paragraphContent {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #e0f7ff;
+}
+
+.servicesGlassWrapper {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  border-radius: 2rem;
+  //   background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  //   backdrop-filter: blur(36px) saturate(180%);
+  //   -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  //   box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  .paragraphTitle {
+    font-size: 1.2rem;
+  }
+  .paragraphContent {
+    font-size: 1rem;
+  }
+}
+
+// Horizontal divider
+.horizontalDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin-top: 1.5rem;
+}

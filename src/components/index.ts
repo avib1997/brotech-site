@@ -1,0 +1,13 @@
+//src/components/index.ts
+export { default as Hero } from './Hero/Hero'
+export { default as Services } from './Services/Services'
+export { default as Faq } from './Faq/Faq'
+export { default as Contact } from './Contact/Contact'
+export { default as About } from './About/About'
+export { default as TechSelect } from './TechSelect/TechSelect'
+export { default as Footer } from './Footer/Footer'
+export { default as HappyClients } from './HappyClients/HappyClients'
+export { default as WebShowcase } from './WebShowcase/WebShowcase'
+export { default as HeroPic } from './HeroPic/HeroPic'
+export { default as OwnerIntro } from './OwnerIntro/OwnerIntro'
+export { default as Header } from './Header/Header'

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberNeon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        direction: rtl;
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      body {
+        background: #050505;
+        color: #0ff;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        height: 100vh;
+        background: radial-gradient(circle at center, #0ff3, #000);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #0ff;
+        padding: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        text-shadow: 0 0 15px #0ff;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: #c0ffff;
+        max-width: 700px;
+        line-height: 1.8;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 8px #0ff;
+        text-align: center;
+      }
+
+      .section p {
+        font-size: 1.1rem;
+        color: #adf;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding: 3rem 1rem;
+      }
+
+      .card {
+        background: #0ff1;
+        border: 1px solid #0ff8;
+        padding: 2rem;
+        width: 280px;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 0 25px #0ff5;
+        color: #fff;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .gallery img {
+        width: 260px;
+        height: 180px;
+        object-fit: cover;
+        border: 2px solid #0ff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 20px #0ff9;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      .testimonials {
+        background: #000;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .testimonial {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: #bdf;
+        font-size: 1.05rem;
+      }
+
+      .form-section {
+        background: #111;
+        padding: 3rem 2rem;
+        border-top: 2px solid #0ff5;
+      }
+
+      .form-section h3 {
+        color: #0ff;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .form-section input,
+      .form-section textarea {
+        width: 100%;
+        background: #0ff1;
+        border: 1px solid #0ff;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        color: #fff;
+      }
+
+      .form-section button {
+        background: #0ff;
+        color: #000;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        box-shadow: 0 0 15px #0ff;
+      }
+
+      .cta {
+        background: #0ff2;
+        padding: 4rem 2rem;
+        text-align: center;
+        color: #000;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px #0ff;
+      }
+
+      .cta button {
+        background: #0ff;
+        border: none;
+        color: #000;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        box-shadow: 0 0 10px #0ff;
+        transition: all 0.3s ease;
+      }
+
+      .cta button:hover {
+        background: #0cf;
+        box-shadow: 0 0 20px #0cf;
+      }
+
+      footer {
+        background: #000;
+        padding: 2rem;
+        text-align: center;
+        color: #0ff;
+        font-size: 0.9rem;
+        border-top: 1px solid #0ff4;
+      }
+
+      @media (max-width: 768px) {
+        .grid,
+        .gallery {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>⚡ CyberNeon</h1>
+      <p>העיצוב ששם את *הניאון* במרכז. חד, זוהר, עתידני. לא בשביל כולם — רק למי שמעז לבלוט.</p>
+    </section>
+
+    <section class="section">
+      <h2>⚙️ מה מייחד את CyberNeon?</h2>
+      <p>סגנון שמתאים לסטארט־אפים, מותגים חדשניים, מערכות AI ואתרי NFT. לא תמצאו כאן פסטלים — רק זוהר עתידני מוחלט.</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">🧠 AI Integration</div>
+      <div class="card">🛡️ Cyber Security</div>
+      <div class="card">📈 Data Overdrive</div>
+      <div class="card">🧬 BioTech Interface</div>
+    </section>
+
+    <section class="gallery">
+      <img src="https://picsum.photos/260/180?random=1" alt="דמו עיצוב" />
+      <img src="https://picsum.photos/260/180?random=2" alt="פרויקט עתידני" />
+      <img src="https://picsum.photos/260/180?random=3" alt="מערכת חכמה" />
+      <img src="https://picsum.photos/260/180?random=4" alt="ממשק ניאוני" />
+    </section>
+
+    <section class="testimonials">
+      <div class="testimonial">״העיצוב הזה גרם לכולם לזכור אותנו – גם מי שלא רצה.״</div>
+      <div class="testimonial">״ניאון שעובד! המרה עלתה ב־31% תוך שבוע.״</div>
+    </section>
+
+    <section class="form-section">
+      <h3>רוצה להאיר את הנוכחות שלך?</h3>
+      <input type="text" placeholder="שם מלא" />
+      <input type="email" placeholder="אימייל" />
+      <textarea rows="4" placeholder="מה אתה צריך?"></textarea>
+      <button>שלח בקשה</button>
+    </section>
+
+    <section class="cta">
+      <h2>הניאון שלך מוכן לזרוח.</h2>
+      <button>צור קשר עכשיו</button>
+    </section>
+
+    <footer>כל הזכויות שמורות © CyberNeon | עיצוב בהשראת סייבר וניאון עתידני</footer>
+  </body>
+</html>

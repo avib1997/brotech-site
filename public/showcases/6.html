@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MagazineGrid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        direction: rtl;
+        font-family: 'Georgia', serif;
+      }
+
+      body {
+        background: #fafafa;
+        color: #111;
+      }
+
+      header {
+        padding: 2rem;
+        background: #111;
+        color: #fff;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+      }
+
+      .intro {
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .grid-item {
+        background: #fff;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+
+      .grid-item:hover {
+        transform: scale(1.02);
+      }
+
+      .grid-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: #f4f4f4;
+        font-size: 1.5rem;
+        padding: 2rem;
+      }
+
+      .grid-item.highlight {
+        background: #111;
+        color: #fff;
+        font-size: 1.3rem;
+      }
+
+      .grid-item img {
+        width: 100%;
+        height: auto;
+        margin-top: 0.75rem;
+      }
+
+      .quote-section {
+        background: #eee;
+        padding: 3rem 2rem;
+        text-align: center;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: #555;
+      }
+
+      .authors {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 2rem;
+        background: #fff;
+      }
+
+      .author {
+        width: 280px;
+        text-align: center;
+        margin: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .author img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+      }
+
+      .cta {
+        background: #111;
+        color: #fff;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .cta h2 {
+        margin-bottom: 1rem;
+      }
+
+      .cta button {
+        background: #fff;
+        color: #111;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      footer {
+        padding: 2rem;
+        text-align: center;
+        background: #eee;
+        font-size: 0.9rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>MagazineGrid / מגזין גריד</h1>
+    </header>
+
+    <section class="intro">
+      <p><strong>✏️ תיאור סגנון:</strong> פריסה גרידית לא־סימטרית, טיפוגרפיה דומיננטית, השראה מעיתונות ומגזינים. מאפשר הצגת תוכן עשיר בצורה חיה ומושכת.</p>
+      <p><strong>🎨 קונספט:</strong> גריד עם שורות ועמודות משתנות, בלוקים מודגשים בגודל שונה, צבעים מונוכרומטיים עם ניגודים חזקים, שימוש מודגש בכותרות ותמונות.</p>
+    </section>
+
+    <section class="grid">
+      <div class="grid-item large">כתבת שער: חדשנות בעיצוב 2025</div>
+      <div class="grid-item">
+        ראיון בלעדי עם מעצבת השנה<br />
+        <img src="https://picsum.photos/300/150?1" alt="design" />
+      </div>
+      <div class="grid-item highlight">5 טרנדים חמים לעיצוב UX</div>
+      <div class="grid-item">Case Study: רשת קמעונאית חכמה</div>
+      <div class="grid-item">עיצוב מונחה בינה מלאכותית</div>
+      <div class="grid-item highlight">הכוח שבמינימליזם</div>
+      <div class="grid-item">מדור מגמות טכנולוגיות 2025</div>
+      <div class="grid-item">
+        קישורים וכלים מעודכנים<br />
+        <img src="https://picsum.photos/300/100?2" alt="tools" />
+      </div>
+    </section>
+
+    <section class="quote-section">"העיצוב הוא השגריר השקט של המותג" – פול ראנד</section>
+
+    <section class="authors">
+      <div class="author">
+        <img src="https://picsum.photos/100?3" alt="Author 1" />
+        <strong>נטע רוזנברג</strong><br />
+        עורכת ראשית, מומחית UI/UX
+      </div>
+      <div class="author">
+        <img src="https://picsum.photos/100?4" alt="Author 2" />
+        <strong>עידן בר־און</strong><br />
+        כתב טכנולוגי, מעצב גריד
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>הצטרפו למהפכה המגזינית</h2>
+      <button>הרשמה למהדורה</button>
+    </section>
+
+    <footer>כל הזכויות שמורות © MagazineGrid | עיצוב בהשראת מגזינים עיתונאיים חכמים</footer>
+  </body>
+</html>

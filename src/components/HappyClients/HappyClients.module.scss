@@ -1,0 +1,276 @@
+// src/components/HappyClients/HappyClients.module.scss
+
+.clientsSection {
+  padding: 5rem 2rem;
+  //   background: #0a0a0a;
+  text-align: center;
+  color: #e0f7ff;
+}
+
+.title {
+  font-size: 3rem;
+  color: #bed2ff;
+  margin-bottom: 3rem;
+}
+
+.statsRow {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+
+  .statBox {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    min-width: 160px;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    strong {
+      display: block;
+      font-size: 1.8rem;
+      color: #bed2ff;
+
+      .statValue {
+        font-size: 1.8rem;
+        color: #bed2ff;
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #b0d7ff;
+    }
+  }
+}
+
+.stars {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #ffd700; // זהב
+  letter-spacing: 0.15rem;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 4rem 0;
+  align-items: center;
+}
+
+.logos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  //   gap: 0.5rem;
+  //   margin-bottom: 1rem;
+  img {
+    filter: drop-shadow(0 0 2px rgba(0, 200, 255, 0.2));
+  }
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  margin: 3rem 0;
+}
+
+.textLogoRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoBox {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(30, 138, 255, 0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(18px);
+    z-index: 0;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    filter: drop-shadow(0 0 1px rgba(30, 138, 255, 0.2));
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    &::before {
+      background: radial-gradient(circle, rgba(30, 138, 255, 0.55) 0%, transparent 70%);
+      filter: blur(24px);
+    }
+
+    img {
+      filter: drop-shadow(0 0 8px rgba(30, 138, 255, 0.6)) brightness(1.25);
+    }
+  }
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin-inline: auto;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 999px) and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.companyLabel {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #82aaff;
+}
+
+.testimonialDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1); // קו דק ועדין
+  margin: 2rem 0;
+}
+
+.testimonialsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 4rem;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.testimonialRow {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 3rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    border: none;
+    padding-bottom: 0;
+  }
+}
+
+.testimonial {
+  flex: 1;
+  text-align: right;
+  padding: 0 1rem;
+
+  .logos {
+    display: flex;
+    justify-content: flex-end;
+    // gap: 0.5rem;
+    // margin-bottom: 1rem;
+
+    img {
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+    }
+  }
+
+  .companyLabel {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #82aaff;
+  }
+
+  .quote {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d0ecff;
+    margin-bottom: 1rem;
+  }
+
+  .stars {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #ffd700;
+  }
+
+  .name {
+    font-weight: bold;
+    color: #00c8ff;
+  }
+
+  .position {
+    font-size: 0.95rem;
+    color: #b0cfff;
+  }
+}
+
+.verticalDivider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 1.5rem;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}

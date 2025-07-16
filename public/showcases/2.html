@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassium</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        direction: rtl;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+        overflow-x: hidden;
+      }
+
+      section {
+        margin: 3rem 2rem;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4rem 2rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        max-width: 700px;
+        font-size: 1.1rem;
+        color: #d8eaff;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .hero button {
+        margin-top: 2rem;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border-radius: 2rem;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+      }
+
+      .intro {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .intro h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+        color: #d0eaff;
+        line-height: 1.8;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .gallery img {
+        width: 280px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(6px);
+      }
+
+      .timeline {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .timeline-step {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-left: 4px solid #00bcd4;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .feature {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        text-align: center;
+        width: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        width: 280px;
+        text-align: center;
+        color: #e0f2ff;
+      }
+
+      .testimonials {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .testimonial {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: #cfeaff;
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(6px);
+      }
+
+      .contact-form button {
+        margin-top: 1rem;
+        background: #00bcd4;
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 2rem;
+        cursor: pointer;
+      }
+
+      .quote {
+        text-align: center;
+        margin: 5rem 0 3rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #e3f7ff;
+        opacity: 0.8;
+      }
+
+      .cta-banner {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 3rem 2rem;
+        text-align: center;
+        max-width: 700px;
+        margin: auto;
+        margin-bottom: 3rem;
+      }
+
+      .cta-banner h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+
+      .cta-banner button {
+        background: #00bcd4;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #bde3ff;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>🏷 Glassium / גלאסיום</h1>
+      <p>עיצוב שקוף, רך ועתידני – מבוסס על שכבות, עומק, שקיפות, ו־Frosted Glass. טכנולוגיה שפוגשת יוקרה.</p>
+      <button>התחל עכשיו</button>
+    </section>
+
+    <section class="intro">
+      <h2>למה Glassium?</h2>
+      <p>שקיפות חכמה, ניגודיות מדויקת, ותחושת תנועה שקטה – העיצוב שלך לא רק נראה טוב, הוא גם מרגיש נכון.</p>
+    </section>
+
+    <section class="gallery">
+      <img src="https://picsum.photos/280/180?1" alt="tech" />
+      <img src="https://picsum.photos/280/180?2" alt="glass" />
+      <img src="https://picsum.photos/280/180?3" alt="interface" />
+    </section>
+
+    <section class="timeline">
+      <div class="timeline-step"><strong>שלב 1:</strong> אפיון צורכי הלקוח</div>
+      <div class="timeline-step"><strong>שלב 2:</strong> עיצוב שקוף בהתאמה אישית</div>
+      <div class="timeline-step"><strong>שלב 3:</strong> הטמעה מלאה והשקה</div>
+    </section>
+
+    <section class="features">
+      <div class="feature">🚀 ביצועים חלקים</div>
+      <div class="feature">🌈 צבעים זוהרים</div>
+      <div class="feature">🧊 עומק אמיתי</div>
+    </section>
+
+    <section class="services">
+      <div class="card">UX מעודן ונעים</div>
+      <div class="card">שכבות חכמות</div>
+      <div class="card">שקיפות עתידנית</div>
+    </section>
+
+    <section class="testimonials">
+      <div class="testimonial">״האתר שלי מעולם לא הרגיש כל־כך פרימיום.״</div>
+      <div class="testimonial">״לקוחות פשוט מתאהבים ברכות של העיצוב.״</div>
+    </section>
+
+    <section class="quote">"כשהעיצוב נמס לתוך החוויה – אתה יודע שאתה ב־Glassium."</section>
+
+    <section class="cta-banner">
+      <h3>רוצה אתר שמרגיש כמו זכוכית?</h3>
+      <button>תאם פגישה</button>
+    </section>
+
+    <section class="contact-form">
+      <h2>צור קשר</h2>
+      <input type="text" placeholder="שם מלא" />
+      <input type="email" placeholder="אימייל" />
+      <textarea rows="4" placeholder="הודעה"></textarea>
+      <button>שלח</button>
+    </section>
+
+    <footer>כל הזכויות שמורות © Glassium | עיצוב בזכוכית דיגיטלית</footer>
+  </body>
+</html>

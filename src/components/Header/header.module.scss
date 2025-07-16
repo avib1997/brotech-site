@@ -1,0 +1,263 @@
+//src/components/Header/Header.module.scss
+/* ─────────── בסיס זכוכיתי קבוע ─────────── */
+.header {
+  position: fixed;
+  top: 1.875rem; /* 30px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 106.25rem; /* 1700px */
+  border-radius: 1.25rem; /* 20px */
+  overflow: hidden;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(0.5rem) saturate(160%); /* 8px */
+  backdrop-filter: blur(0.5rem) saturate(160%);
+  border: 0.125rem solid rgba(255, 255, 255, 0.35); /* 2px */
+  box-shadow: 0 1.75rem 3.75rem rgba(0, 0, 0, 0.45); /* 28px / 60px */
+  transition: transform 0.3s ease, background 0.35s, backdrop-filter 0.35s, box-shadow 0.35s;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.015); // הגדלה עדינה
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6); // צל חזק יותר בהובר
+  }
+}
+
+.header > * {
+  position: relative;
+  z-index: 2;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 15%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0%, rgba(119, 249, 255, 0.6) 40%, rgba(255, 255, 255, 0.9) 50%, rgba(119, 249, 255, 0.6) 60%, transparent 100%);
+  transform: skewX(-25deg);
+  mix-blend-mode: screen;
+  filter: blur(0.375rem); /* 6px */
+  opacity: 0.6;
+  // animation: sheen-move 4s cubic-bezier(0.45, 0.2, 0.2, 0.95) infinite;
+  z-index: 1;
+}
+
+@keyframes sheen-move {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.header:hover::before {
+  animation: sheen-move 4s cubic-bezier(0.45, 0.2, 0.2, 0.95) infinite;
+}
+
+.neonLine {
+  position: absolute;
+  right: 2rem; /* 32px */
+  bottom: -0.0625rem; /* -1px */
+  width: clamp(10rem, 14vw, 16.25rem); /* 160 / 260px */
+  height: 0.125rem; /* 2px */
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 15%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.25) 85%, transparent 100%);
+}
+
+.neonLine::before {
+  content: '';
+  position: absolute;
+  inset: -0.375rem 0 0.25rem 0; /* -6px / 4px */
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(126, 255, 238, 0.88) 0%, rgba(126, 255, 238, 0.45) 30%, rgba(126, 255, 238, 0.12) 55%, transparent 80%);
+  filter: blur(0.5rem); /* 8px */
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+.neonLine::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -0.3125rem; /* -5px */
+  translate: -50% 0;
+  width: 7.5rem; /* 120px */
+  height: 0.75rem; /* 12px */
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #fff 0%, rgba(126, 255, 238, 0.9) 45%, rgba(126, 255, 238, 0) 100%);
+  filter: blur(0.375rem); /* 6px */
+  mix-blend-mode: screen;
+}
+
+.navContainer {
+  max-width: 75rem; /* 1200px */
+  margin: 0 auto;
+  padding: 0.875rem 1.125rem; /* 14px 18px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e2e8f0;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.navItems {
+  display: none;
+  gap: 2rem; /* 32px */
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 3.125rem; /* 50px */
+  padding: 0 1.375rem; /* 22px */
+  line-height: 1;
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  z-index: 1;
+  gap: 0.25rem; /* 4px */
+  margin: 0.625rem; /* 10px */
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem; /* 8px */
+  background: rgba(36, 113, 255, 0.1);
+  border: 0.0625rem solid rgba(36, 113, 255, 0.35); /* 1px */
+  -webkit-backdrop-filter: blur(0.375rem) saturate(170%); /* 6px */
+  backdrop-filter: blur(0.375rem) saturate(170%);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.navLink:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 0.25rem 1.125rem rgba(36, 113, 255, 0.35), inset 0 0 0.375rem rgba(255, 255, 255, 0.18); /* 4px / 18px / 6px */
+}
+
+.navLink:hover {
+  color: #f8fafc;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem; /* -4px */
+  left: 50%;
+  width: 0;
+  height: 0.125rem; /* 2px */
+  background: #38bdf8;
+  border-radius: 0.125rem; /* 2px */
+  transition: width 0.25s, left 0.25s;
+}
+
+.navLink:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navLink.active {
+  color: #facc15;
+}
+.navLink.active::after {
+  width: 100%;
+  left: 0;
+  background: #facc15;
+}
+
+.nav-icon {
+  font-size: 0.625rem; /* 10px */
+  line-height: 1;
+  color: #e2e8f0;
+  transition: color 0.3s;
+}
+.nav-link:hover .nav-icon {
+  color: #38bdf8;
+}
+
+.nav-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.mobileToggle button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.18); /* 1px */
+  border-radius: 50%;
+  padding: 0.5rem; /* 8px */
+  -webkit-backdrop-filter: blur(0.25rem); /* 4px */
+  backdrop-filter: blur(0.25rem);
+  color: #e2e8f0;
+  transition: background 0.3s;
+}
+.mobileToggle button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.mobileMenu {
+  background: #121e41;
+  color: #e2e8f0;
+  padding: 1.125rem 1.5rem; /* 18px 24px */
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.625rem); /* -10px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileLink {
+  width: 100%;
+  text-align: left;
+  padding: 0.875rem 0; /* 14px */
+  border: none;
+  background: none;
+  border-bottom: 0.0625rem solid #203a8b; /* 1px */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+.mobileLink:hover {
+  color: #38bdf8;
+}
+
+@media (min-width: 640px) {
+  .navItems {
+    display: flex;
+  }
+  .mobileToggle {
+    display: none;
+  }
+}
+
+.headerScrolled {
+  background: rgba(17, 17, 17, 0.8);
+}

@@ -1,0 +1,151 @@
+//src/components/Faq/Faq.module.scss
+.faqSection {
+  // background-color: #0a0a23;
+  padding: 1rem 1rem;
+  color: #e0f7ff;
+  text-align: center;
+  scroll-margin-top: 10rem; /* 80px → 5rem */
+  z-index: 20;
+  background: transparent !important;
+  // margin-left: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  color: #b0d7ff;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+
+.motionContainer {
+  display: grid;
+  grid-template-columns: 0.7fr 45% 0.7fr 45% 0.7fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .motionContainer {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+}
+
+.disclosure {
+  border-radius: 1rem; /* 16px */
+  border: 0.025rem solid #5bacff;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.disclosure.open {
+  animation: glowPulse 1.5s ease-in-out infinite; // 🚩 קצב מהיר יותר
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 1.25rem #00c8ff66, 0 0 2.5rem #00c8ff33 inset;
+  }
+  50% {
+    box-shadow: 0 0 1.875rem #00c8ffaa, 0 0 5rem #00c8ff55 inset;
+  }
+}
+
+.disclosureHeader {
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5bacff;
+  // background: linear-gradient(135deg, rgba(10, 25, 47, 1), rgba(17, 27, 61, 1));
+  // backdrop-filter: blur(12px);
+  // -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.disclosurePanel {
+  padding: 1.25rem 1.75rem;
+  background: #111827;
+  border-top: 1px solid #00c8ff33;
+  color: #e0f7ff;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: right;
+  // max-height: 62.5rem; /* 1000px */
+  opacity: 1;
+  // transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  overflow: hidden;
+}
+
+.disclosurePanel.entering {
+  max-height: 62.5rem;
+  opacity: 1;
+}
+
+.disclosurePanel.exiting {
+  max-height: 0;
+  opacity: 0;
+}
+
+.chevronIcon {
+  transition: transform 0.4s ease-in-out, color 0.3s ease;
+  color: #5bacff;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  color: #5bacff;
+}
+
+.open {
+  box-shadow: 0 0 2.5rem #00c8ff66;
+}
+
+/* אנימציה עדינה */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.375rem); /* 6px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* התאמה למובייל */
+@media (max-width: 600px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .disclosureHeader {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .disclosurePanel {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+.servicesGlassWrapper {
+  max-width: 80rem; /* או 70rem בהתאם לרוחב הרצוי */
+  margin-inline: auto;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  border-radius: 2rem;
+  // background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  // backdrop-filter: blur(36px) saturate(180%);
+  // -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18); // מסגרת לבנה שקופה
+  // box-shadow: 0 0 40px rgba(255, 255, 255, 0.05); // הילה לבנה עדינה
+}

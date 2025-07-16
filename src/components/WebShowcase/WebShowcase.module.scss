@@ -1,0 +1,179 @@
+.gallerySection {
+  padding: 4rem 1rem;
+  max-width: 75rem;
+  margin: 0 auto;
+  text-align: center;
+  color: #e2e8f0;
+  scroll-margin-top: 10rem; /* 80px → 5rem */
+}
+
+.title {
+  //   -webkit-background-clip: text;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  //   background: linear-gradient(to right, #82aaff, #d1d5db);
+  //   -webkit-text-fill-color: transparent;
+  color: #82aaff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.thumb {
+  position: relative;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0d1117; // כהה, אבל לא שחור מוחלט
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // ✅ גבול פנימי דק מאוד + צל קל
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: inset 0 0 0 1px rgba(130, 170, 255, 0.3), 0 8px 24px rgba(130, 170, 255, 0.2);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  position: relative;
+  width: 90vw; /* ⬅️ במקום width קטן או קבוע */
+  max-width: 1200px; /* ⬅️ תקרה למחשבים רחבים */
+  height: 85vh;
+  background: #0a192f;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(130, 170, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #82aaff;
+  cursor: pointer;
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fadeZoom {
+  animation: fadeZoomIn 0.4s ease-out both;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+.zoomIcon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.previewIframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  border-radius: 1rem;
+  background: white;
+}
+
+.subTitle {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  text-align: right;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.ctaWrapper {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.ctaButton {
+  background: linear-gradient(to right, #82aaff, #61dafb);
+  color: #0a192f;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(130, 170, 255, 0.25);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(130, 170, 255, 0.4);
+}

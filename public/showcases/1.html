@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrutaOne</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        direction: rtl;
+        font-family: 'Arial Black', sans-serif;
+      }
+
+      body {
+        background: #f2f2f2;
+        color: #111;
+        overflow-x: hidden;
+      }
+
+      header {
+        background: #fff;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 4px solid #000;
+      }
+
+      header .logo {
+        font-size: 1.75rem;
+        font-weight: bold;
+      }
+
+      header button {
+        background: red;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        padding: 0.85rem 1.75rem;
+        cursor: pointer;
+      }
+
+      .hero {
+        padding: 5rem 2rem;
+        background: yellow;
+        text-align: center;
+        border-bottom: 4px solid #000;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+      }
+
+      .hero-description {
+        text-align: right;
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      .hero-description p {
+        margin-bottom: 2rem;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        background: #0af;
+        color: #000;
+        padding: 3rem 2rem;
+        border-top: 4px solid #000;
+        border-bottom: 4px solid #000;
+      }
+
+      .features h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .feature-item {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #fff;
+        border: 3px solid #000;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 3rem 2rem;
+        background: #fff;
+        border-top: 4px solid #000;
+        border-bottom: 4px solid #000;
+      }
+
+      .card {
+        background: #fff;
+        border: 3px solid black;
+        width: 28%;
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+
+      .cta-section {
+        background: #111;
+        color: #fff;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-section button {
+        background: yellow;
+        border: 3px solid #000;
+        color: #000;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .form-section {
+        background: red;
+        padding: 3rem 2rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      .form-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-section input {
+        padding: 1rem;
+        margin: 0.75rem;
+        font-size: 1rem;
+        border: 3px solid black;
+        width: 90%;
+        max-width: 400px;
+        display: block;
+        margin-inline: auto;
+      }
+
+      .form-section button {
+        background: #000;
+        color: #fff;
+        padding: 0.85rem 1.75rem;
+        border: none;
+        font-size: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+
+      footer {
+        background: #000;
+        color: white;
+        padding: 2.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .card,
+        .feature-item {
+          width: 100%;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">BrutaOne</div>
+      <button>קנה עכשיו</button>
+    </header>
+
+    <section class="hero">
+      <h1>/ BrutaOne 🏷<br /><span style="font-size: 2.5rem">ברוטאון</span></h1>
+
+      <div class="hero-description">
+        <p>
+          ✏️ <strong>תיאור סגנון:</strong><br />
+          עיצוב גולמי, נועז, צבעוני – בלי אפקטים, בלי צללים. הכל שטוח, חד, בולט. קונספט שפשוט אי אפשר להתעלם ממנו.
+        </p>
+        <p>
+          🎨 <strong>קונספט:</strong><br />
+          צבעים ראשוניים חדים: אדום, צהוב, כחול. <br />
+          כפתורים שטוחים, גבולות עבים, טיפוגרפיה אגרסיבית ועיצוב שצועק.
+        </p>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>למה לבחור בנו?</h2>
+      <div class="feature-item">⚡ טעינה מהירה ללא מעברים חלקים</div>
+      <div class="feature-item">🎯 כל אלמנט בולט בנוכחותו – בלי פשרות</div>
+      <div class="feature-item">📱 התאמה מלאה לניידים בצורה בוטה וברורה</div>
+    </section>
+
+    <section class="cards">
+      <div class="card">🟡 מסלול בסיסי: פתרון מהיר ונגיש לעסקים קטנים</div>
+      <div class="card">🔵 חבילה מתקדמת: אתרים עם אופי ברור ואינטגרציות</div>
+      <div class="card">🔴 חבילת על: חוויית משתמש ייחודית ואינטראקטיבית</div>
+    </section>
+
+    <section class="cta-section">
+      <h2>נמאס לך מעיצוב משעמם?</h2>
+      <p>זה הזמן להתפרע. BrutaOne זה לא עוד אתר – זו אמירה. צור איתנו קשר עכשיו.</p>
+      <button>דברו איתי</button>
+    </section>
+
+    <section class="form-section">
+      <h2>רוצה שנחזור אליך?</h2>
+      <input type="text" placeholder="שם מלא" />
+      <input type="email" placeholder="אימייל" />
+      <button>שלח</button>
+    </section>
+
+    <footer>© כל הזכויות שמורות | BrutaOne | עיצוב ניאו־ברוטליסטי שעושה רעש</footer>
+  </body>
+</html>

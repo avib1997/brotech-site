@@ -1,0 +1,433 @@
+// Section layout
+.servicesSection {
+  padding: 4rem 1rem;
+  max-width: 75rem;
+  margin: 0 auto;
+  color: #e2e8f0;
+  scroll-margin-top: 10rem; /* 80px → 5rem */
+}
+
+// Section title
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: #4983ff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Horizontal divider
+.horizontalDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+// Grid wrapper
+.grid2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem 0;
+  direction: ltr;
+}
+
+// Center vertical line
+.grid2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+// Group wrapper
+.cardGroup {
+  display: contents;
+  position: relative;
+}
+
+// Hover icon only
+/* Services.module.scss */
+
+/* 1 – פיתוח אתרים  */
+.cardGroup:nth-of-type(1):hover .emptySpot svg {
+  animation: popSpring 1.6s cubic-bezier(0.25, 0.8, 0.4, 1) infinite;
+}
+
+/* 2 – אוטומציה ובוטים */
+.cardGroup:nth-of-type(2):hover .emptySpot svg {
+  animation: elasticScale 1.4s cubic-bezier(0.4, 0, 0.2, 1.2) infinite;
+}
+
+/* 3 – AI וזיהוי פנים */
+.cardGroup:nth-of-type(3):hover .emptySpot svg {
+  animation: springRotate 1.8s cubic-bezier(0.23, 1.4, 0.32, 1) infinite;
+}
+
+/* 4 – דשבורדים */
+.cardGroup:nth-of-type(4):hover .emptySpot svg {
+  animation: wobbleX 1.6s ease-out infinite;
+}
+
+/* 5 – UX/UI */
+.cardGroup:nth-of-type(5):hover .emptySpot svg {
+  animation: flipYSpring 1.8s cubic-bezier(0.25, 0.75, 0.35, 1.3) infinite;
+}
+
+/* 6 – תחזוקה ואבטחה */
+.cardGroup:nth-of-type(6):hover .emptySpot svg {
+  animation: jellySpring 1.6s cubic-bezier(0.25, 0.7, 0.35, 1.2) infinite;
+}
+
+/* ───────── 1. popSpring – קפיצה רכה מעלה ───────── */
+@keyframes popSpring {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-6px) scale(1.12, 0.9);
+  }
+  65% {
+    transform: translateY(3px) scale(0.96, 1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ───────── 2. elasticScale – התרחבות פנימה-החוצה ───────── */
+@keyframes elasticScale {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  55% {
+    transform: scale(0.88);
+  }
+  75% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ───────── 3. springRotate – סיבוב קל עם קפיץ ───────── */
+@keyframes springRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(18deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ───────── 4. wobbleX – נדנוד ימינה-שמאלה דועך ───────── */
+@keyframes wobbleX {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-10px);
+  }
+  30% {
+    transform: translateX(8px);
+  }
+  45% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ───────── 5. flipYSpring – היפוך 180° עם קפיציות ───────── */
+@keyframes flipYSpring {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+  40% {
+    transform: rotateY(180deg) scale(1.05);
+  }
+  65% {
+    transform: rotateY(160deg) scale(0.97);
+  }
+  85% {
+    transform: rotateY(180deg) scale(1.02);
+  }
+  100% {
+    transform: rotateY(180deg) scale(1);
+  }
+}
+
+/* ───────── 6. pulseSpring – פעימת קפיץ עדינה ───────── */
+@keyframes pulseSpring {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ───────── 7. jellySpring – ג’לי רוטט ───────── */
+@keyframes jellySpring {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.25, 0.75);
+  }
+  50% {
+    transform: scale(0.8, 1.3);
+  }
+  75% {
+    transform: scale(1.15, 0.85);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* ───────── 8. tiltSpring – הטיה קלה וחזרה ───────── */
+@keyframes tiltSpring {
+  0% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes softFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-6px) scale(1.06);
+  }
+  60% {
+    transform: translateY(2px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0) scale(1.05);
+  }
+}
+
+// Card base
+.card {
+  position: relative;
+  width: 92%;
+  max-width: 560px;
+  border-top: 2px solid #38bdf8;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  direction: rtl;
+  text-align: right;
+  transition: transform 0.3s ease;
+}
+
+// Align left
+.left {
+  justify-self: start;
+}
+
+// Align right
+.right {
+  justify-self: end;
+}
+
+// Line before (right)
+.card.right::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: -1vw;
+  width: 40vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+// Line before (left)
+.card.left::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  right: -1vw;
+  width: 40vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+// Line after (both)
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -1.5rem;
+  width: 40vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.card.right::after {
+  left: -1vw;
+}
+
+.card.left::after {
+  right: -1vw;
+}
+
+// Remove last pair line
+.cardGroup:last-of-type .card::after {
+  display: none;
+}
+
+// Icon cell
+.emptySpot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.emptySpot svg {
+  stroke: #4983ff;
+  opacity: 1;
+  width: 8rem;
+  height: 8rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+// Card title
+.cardTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #82aaff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+// Title underline
+.cardTitle::after {
+  content: '';
+  width: 2.25rem;
+  height: 2px;
+  background: #38bdf8;
+  border-radius: 2px;
+}
+
+// Title icon hover
+.cardTitle svg {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardTitle svg {
+  transform: rotate(-5deg) scale(2.05);
+}
+
+// Paragraphs
+.card p {
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+// Availability text
+.availability {
+  font-style: italic;
+  color: #a0aec0;
+  align-self: center;
+  text-align: center;
+}
+
+// Optional icon row
+.betweenIcon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.betweenIcon svg {
+  stroke: #38bdf8;
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+
+.betweenIcon:hover svg {
+  opacity: 0.6;
+}
+
+// Mobile view
+@media (max-width: 768px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .emptySpot {
+    display: none;
+  }
+
+  .grid2::before,
+  .card {
+    border-bottom: none;
+  }
+
+  .card,
+  .grid2 > .card:nth-child(odd),
+  .grid2 > .card:nth-child(even) {
+    width: 100%;
+    align-self: stretch;
+    max-width: none;
+  }
+}

@@ -1,0 +1,9 @@
+
+<svg width="300" height="60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sls { font: bold 32px 'Arial', sans-serif; fill: #7B61FF; }
+    .systems { font: 32px 'Arial', sans-serif; fill: #B0B0C3; }
+  </style>
+  <text x="0" y="40" class="sls">SLS</text>
+  <text x="100" y="40" class="systems">Systems</text>
+</svg>

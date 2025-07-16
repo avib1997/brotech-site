@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplitLayout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        direction: rtl;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        color: #111;
+      }
+
+      .intro {
+        padding: 3rem 2rem;
+        background: #fff;
+        line-height: 1.8;
+        border-bottom: 1px solid #eee;
+      }
+
+      .intro h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro p {
+        margin-bottom: 1rem;
+      }
+
+      .split {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 90vh;
+      }
+
+      .split .left {
+        flex: 1 1 50%;
+        padding: 4rem 3rem;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .split .right {
+        flex: 1 1 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+      }
+
+      .split .right img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .left h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .left p {
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .features {
+        padding: 3rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        background: #fff;
+      }
+
+      .feature {
+        flex: 1 1 30%;
+        background: #fdfdfd;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .gallery {
+        padding: 3rem 2rem;
+        background: #eee;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+
+      .gallery img {
+        width: 300px;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .callout {
+        padding: 3rem 2rem;
+        background: #fff;
+        text-align: center;
+      }
+
+      .callout h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .callout p {
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .extra-section {
+        padding: 3rem 2rem;
+        background: #f9f9f9;
+      }
+
+      .extra-section h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .extra-section ul {
+        list-style: none;
+        padding-right: 1rem;
+      }
+
+      .extra-section li {
+        margin-bottom: 0.75rem;
+        padding-right: 1rem;
+        position: relative;
+      }
+
+      .extra-section li::before {
+        content: '✔';
+        position: absolute;
+        right: 0;
+        color: #00a3c4;
+      }
+
+      footer {
+        padding: 2rem;
+        background: #eee;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .split {
+          flex-direction: column;
+        }
+
+        .split .left,
+        .split .right {
+          flex: 1 1 100%;
+        }
+
+        .gallery img {
+          width: 90%;
+        }
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="intro">
+      <h2>🏷 SplitLayout / פריסה חצויה</h2>
+      <p><strong>✏️ תיאור סגנון:</strong> עיצוב בשני חצאים – טקסט ותמונה זה לצד זה. גישה מאוזנת להצגת תוכן עם מסר ברור לצד ויזואל חזק.</p>
+      <p><strong>🎨 קונספט:</strong> צד ימין – תמונה או צבע. צד שמאל – תוכן כתוב. מבנה מאוזן, גובה מסך מלא. משדר יציבות וארגון.</p>
+    </section>
+
+    <section class="split">
+      <div class="left">
+        <h1>הצד שלך. והצד של המסר.</h1>
+        <p>בפריסה חצויה, העיצוב נשאר פשוט אבל חד. התוכן שלך מקבל במה – מבלי לוותר על נראות עוצמתית.</p>
+      </div>
+      <div class="right">
+        <img src="https://picsum.photos/600/800?grayscale" alt="Preview" />
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">🎯 איזון מושלם בין מסר לוויזואל</div>
+      <div class="feature">📐 פריסה שקופה וברורה</div>
+      <div class="feature">🖼️ מתאים למובייל ולמסך רחב</div>
+    </section>
+
+    <section class="gallery">
+      <img src="https://picsum.photos/300/200?1" alt="Gallery image" />
+      <img src="https://picsum.photos/300/200?2" alt="Gallery image" />
+      <img src="https://picsum.photos/300/200?3" alt="Gallery image" />
+      <img src="https://picsum.photos/300/200?4" alt="Gallery image" />
+    </section>
+
+    <section class="callout">
+      <h2>שומרים על פוקוס – בלי הסחות</h2>
+      <p>SplitLayout מדגיש את המסר המרכזי שלך – בלי רעשי רקע.</p>
+    </section>
+
+    <section class="extra-section">
+      <h3>למי מתאים הסגנון?</h3>
+      <ul>
+        <li>מותגים שרוצים נוכחות נקייה וברורה</li>
+        <li>מוצרי SaaS שרוצים להעביר מסר מיידי</li>
+        <li>עמודים שיווקיים עם ויזואל בולט</li>
+      </ul>
+    </section>
+
+    <footer>כל הזכויות שמורות © SplitLayout | פריסה חצויה מקצועית</footer>
+  </body>
+</html>

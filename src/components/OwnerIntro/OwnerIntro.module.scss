@@ -1,0 +1,53 @@
+.ownerSection {
+  background: linear-gradient(to bottom, #0a192f, #0e1e36);
+  color: #e0f7ff;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap-reverse;
+}
+
+.textBox {
+  flex: 1;
+  min-width: 300px;
+}
+
+.title {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #82aaff, #60c3ff);
+  -webkit-background-clip: text;
+  background-clip: text; // ✅ תוספת מומלצת
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #cbe6ff;
+}
+
+.imageBox {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  border: #0a192f;
+  border-radius: 10%;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
