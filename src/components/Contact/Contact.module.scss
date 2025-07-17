@@ -252,6 +252,7 @@
 /* ==================== Submit Button (חלק 1) ==================== */
 .ctaButton {
   display: inline-flex;
+  text-align: center;
   padding: 1rem 11.5rem;
   font-size: 2.1rem;
   font-weight: 700;
@@ -598,4 +599,60 @@
   transform: none !important;
   will-change: auto !important;
   z-index: auto !important;
+}
+
+@media (max-width: 768px) {
+  .contactBox {
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    gap: 2rem;
+  }
+
+  .contactHeader h2 {
+    font-size: 2rem;
+  }
+
+  .contactHeader .contactSubtitle {
+    font-size: 1rem;
+  }
+
+  .contactForm {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .contactForm input,
+  .contactForm textarea,
+  .contactForm select {
+    font-size: 0.95rem;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+  }
+
+  .ctaButton {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ctaIcon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .toast {
+    padding: 2rem;
+    font-size: 1.3rem;
+  }
+
+  .toastClose {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .toastCountdown {
+    font-size: 1rem;
+  }
 }

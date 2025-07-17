@@ -326,3 +326,67 @@
 .heroImg {
   overflow: visible;
 }
+
+@media (max-width: 768px) {
+  .heroBanner {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .heroVisualArea {
+    padding-top: 2rem;
+  }
+
+  .heroPhotoWrapper {
+    margin-inline-start: 0;
+    max-width: 85vw;
+  }
+
+  .tech-float {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .heroLogo {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+
+  .heroHeadGroup {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .heroBrand {
+    font-size: 2.2rem;
+  }
+
+  .heroHeadline {
+    font-size: 1.6rem;
+  }
+
+  .heroMidGroup,
+  .heroDescGroup {
+    font-size: 1rem;
+    max-width: 90vw;
+    align-self: center;
+    text-align: center;
+  }
+
+  .heroCta {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .iconSvg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .arrow {
+    font-size: 1.1rem;
+  }
+}

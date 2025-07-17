@@ -177,3 +177,64 @@
   transform: translateY(-3px);
   box-shadow: 0 12px 24px rgba(130, 170, 255, 0.4);
 }
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    justify-items: center;
+  }
+
+  .thumb {
+    img {
+      height: auto;
+      max-height: 180px;
+      min-height: 260px;
+    }
+
+    .caption {
+      font-size: 1.4rem;
+    }
+  }
+  .thumb {
+    max-width: 24rem;
+    min-height: 260px;
+    border-radius: 0.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subTitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .modalContent {
+    width: 95vw;
+    height: 90vh;
+    padding: 0.5rem;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .previewIframe {
+    height: 75vh;
+  }
+
+  .ctaButton {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .zoomIcon {
+    font-size: 1rem;
+    top: 0.3rem;
+    right: 0.3rem;
+    padding: 0.2rem 0.35rem;
+  }
+}

@@ -431,3 +431,12 @@
     max-width: none;
   }
 }
+
+@media (max-width: 768px) {
+  .card.left::before,
+  .card.right::before,
+  .card::after,
+  .grid2::before {
+    display: none;
+  }
+}

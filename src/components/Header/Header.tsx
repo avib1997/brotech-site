@@ -2,7 +2,7 @@
 'use client'
 import React, { JSX, useRef } from 'react'
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import Image from 'next/image'
 import styles from './Header.module.scss'
 import { Home, Briefcase, Users, HelpCircle, Mail, Images } from 'lucide-react'
@@ -39,6 +39,14 @@ export default function Header() {
 
   /** מפה שמכילה את יחס-החשיפה הנוכחי של כל מקטע */
   const ratiosRef = useRef<Record<string, number>>({})
+
+  const HamburgerIcon = ({ size = 24, color = '#e2e8f0' }: { size?: number; color?: string }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  )
 
   useEffect(() => {
     const sections = navItems.map((n) => document.getElementById(n.target)).filter(Boolean) as HTMLElement[]
@@ -89,8 +97,10 @@ export default function Header() {
       <span className={styles.neonLine} />
 
       <nav className={styles.navContainer}>
-        <div className={styles.logo} onClick={() => scrollTo('hero')}>
-          <Image src="/brotech_logo_hq.png" alt="BroTech logo" width={120} height={50} priority className={styles.logoImg} />
+        <div className={styles.logoWrapper} onClick={() => scrollTo('hero')}>
+          {/* <div className={styles.logo}> */}
+          <Image src="/logo-bro.png" alt="BroTech logo" width={170} height={90} priority className={styles.logoImg} />
+          {/* </div> */}
         </div>
 
         <div className={styles.navItems}>
@@ -104,20 +114,20 @@ export default function Header() {
 
         <div className={styles.mobileToggle}>
           <button onClick={() => setOpen(!open)} aria-label={open ? 'סגור תפריט' : 'פתח תפריט'}>
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={24} /> : <HamburgerIcon size={24} />}
           </button>
         </div>
-      </nav>
 
-      {open && (
-        <div className={styles.mobileMenu} role="menu">
-          {navItems.map(({ label, target }) => (
-            <button key={target} className={styles.mobileLink} onClick={() => scrollTo(target)} role="menuitem" aria-label={`מעבר אל ${label}`}>
-              {label}
-            </button>
-          ))}
-        </div>
-      )}
+        {open && (
+          <div className={styles.mobileMenu} role="menu">
+            {navItems.map(({ label, target }) => (
+              <button key={target} className={`${styles.mobileLink} ${active === target ? styles.active : ''}`} onClick={() => scrollTo(target)} role="menuitem" aria-label={`מעבר אל ${label}`}>
+                {navIcons[target]} {label}
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
     </header>
   )
 }

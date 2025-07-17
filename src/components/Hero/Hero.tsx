@@ -104,26 +104,27 @@ export default function Hero() {
   const frontIcons = icons.filter((ic) => ic.front)
 
   const renderIcons = (arr: IconCfg[]) =>
-    arr.map(({ src, top, left, size, blur = 0, rotate = 0 }, i) => (
-      <Image
-        key={i}
-        src={src}
-        alt=""
-        width={size ?? ICON_PX}
-        height={size ?? ICON_PX}
-        className="tech-float"
-        style={{
-          position: 'absolute',
-          width: size,
-          height: size,
-          top,
-          left,
-          transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
-          filter: `blur(${blur}px) drop-shadow(0 4px 8px rgba(0,0,0,.25))`,
-          pointerEvents: 'none'
-        }}
-      />
-    ))
+    arr.map(({ src, top, left, size = ICON_PX, blur = 0, rotate = 0 }, i) => {
+
+      return (
+        <div
+          key={i}
+          className="tech-float"
+          style={{
+            position: 'absolute',
+            top,
+            left,
+            transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
+            filter: `blur(${blur}px) drop-shadow(0 4px 8px rgba(0,0,0,.25))`,
+            pointerEvents: 'none',
+            width: `${size}px`,
+            height: `${size}px`
+          }}
+        >
+          <Image src={src} alt="" fill sizes="100%" />
+        </div>
+      )
+    })
 
   return (
     <section className={styles.heroBanner}>
