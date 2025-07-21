@@ -137,7 +137,20 @@ const logoSizes: Record<string, { w: number; h: number }> = {
 function Logo({ src }: { src: string }) {
   const id = src.split('/').pop()?.replace('.svg', '').toLowerCase() || ''
   const size = logoSizes[id] ?? { w: 100, h: 60 }
-  return <Image src={src} alt="Company Logo" width={size.w} height={size.h} />
+  return (
+    <Image
+      src={src}
+      alt="Company Logo"
+      width={size.w}
+      height={size.h}
+      style={{
+        maxHeight: size.h,
+        width: 'auto',
+        height: 'auto',
+        display: 'block'
+      }}
+    />
+  )
 }
 // -------------------------------------------------------------------
 
@@ -253,8 +266,17 @@ export default function HappyClients() {
         >
           {testimonials.map((t, idx) => {
             return (
-              <SwiperSlide key={idx} className={styles.cardSlide}>
-                <div className={styles.testimonial}>
+              <SwiperSlide
+                key={idx}
+                className={`${styles.cardSlide} swiper-slide`}
+                onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+                onMouseLeave={() => {
+                  if (activeIndex === null) {
+                    swiperRef.current?.autoplay?.start()
+                  }
+                }}
+              >
+                <div className={styles.testimonial} onClick={() => setActiveIndex(idx)}>
                   <div className={styles.logos}>{Array.isArray(t.companyLogos) ? t.companyLogos.map((l, i) => <Logo key={i} src={l} />) : <Logo src={t.companyLogo ?? '/default-logo.svg'} />}</div>
                   {t.companyName && <div className={styles.companyLabel}>{t.companyName}</div>}
 
@@ -269,15 +291,23 @@ export default function HappyClients() {
                   <p className={styles.position}>{t.position}</p>
                 </div>
 
-                <div className={`${styles.modalOverlay} ${activeIndex === idx ? styles.show : ''}`} onClick={() => setActiveIndex(null)}>
-                  <div className={styles.modalContentLarge} onClick={(e) => e.stopPropagation()}>
-                    <button className={styles.modalClose} onClick={() => setActiveIndex(null)}>
-                      ✕
-                    </button>
-                    <h3 className={styles.modalTitle}>{t.companyName}</h3>
-                    <div className={styles.modalQuote} dangerouslySetInnerHTML={{ __html: t.quote }} />
+                {activeIndex === idx && (
+                  <div
+                    className={`${styles.modalOverlay} ${activeIndex === idx ? styles.show : ''}`}
+                    onClick={() => {
+                      console.log('clicked outside modal')
+                      setActiveIndex(null)
+                    }}
+                  >
+                    <div className={styles.modalContentLarge} onClick={(e) => e.stopPropagation()}>
+                      <button className={styles.modalClose} onClick={() => setActiveIndex(null)}>
+                        ✕
+                      </button>
+                      <h3 className={styles.modalTitle}>{t.companyName}</h3>
+                      <div className={styles.modalQuote} dangerouslySetInnerHTML={{ __html: t.quote }} />
+                    </div>
                   </div>
-                </div>
+                )}
               </SwiperSlide>
             )
           })}

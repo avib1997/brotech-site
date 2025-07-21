@@ -146,7 +146,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className={styles.horizontalDivider}></div>
+        <div id="pricing" className={styles.horizontalDivider}></div>
         <div id="services-end" className={styles.downloadSection} data-aos="fade-up">
           <h3 className={styles.downloadTitle}>רוצה לדעת עוד?</h3>
           <p className={styles.downloadText}>הורד את תקציר השירותים שלנו, עם מחירים, טכנולוגיות ופרויקטים לדוגמה.</p>

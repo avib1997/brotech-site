@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function OwnerIntro() {
   return (
-    <section className={styles.ownerSection}>
+    <section id="aboutMe" className={styles.ownerSection}>
       <div className={styles.container}>
         <div className={styles.textBox}>
           <h2 className={styles.title}>נעים להכיר 👋</h2>

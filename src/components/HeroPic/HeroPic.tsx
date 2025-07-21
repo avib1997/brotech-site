@@ -52,13 +52,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <Image
-          src="/hero/mac5.png" // שים את התמונה שלך כאן
-          alt="MacBook Pro"
-          fill
-          className={styles.bgImage}
-          priority
-        />
+        <Image src="/hero/mac5.png" alt="MacBook Pro" fill={false} width={1600} height={900} className={styles.bgImage} priority />
       </div>
     </section>
   )

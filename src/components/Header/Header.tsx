@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import styles from './Header.module.scss'
-import { Home, Briefcase, Users, HelpCircle, Mail, Images } from 'lucide-react'
+import { Home, Briefcase, Users, HelpCircle, Mail, Images, Smile, DollarSign, UserCircle, Layout } from 'lucide-react'
 
 const navIcons: Record<string, JSX.Element> = {
   hero: <Home size={18} />,
@@ -13,7 +13,13 @@ const navIcons: Record<string, JSX.Element> = {
   gallery: <Images size={18} />,
   about: <Users size={18} />,
   faq: <HelpCircle size={18} />,
-  contact: <Mail size={18} />
+  contact: <Mail size={18} />,
+
+  // חדשים:
+  clients: <Smile size={18} />,
+  pricing: <DollarSign size={18} />,
+  aboutMe: <UserCircle size={18} />,
+  footer: <Layout size={18} />
 }
 
 const navItems = [
@@ -23,6 +29,13 @@ const navItems = [
   { label: 'על החברה', target: 'about' },
   { label: 'שאלות שלכם', target: 'faq' },
   { label: 'צור קשר', target: 'contact' }
+]
+
+const moreMenuItems = [
+  { label: 'לקוחות מרוצים', target: 'clients' },
+  { label: 'מחירים', target: 'pricing' },
+  { label: 'על עצמי', target: 'aboutMe' },
+  { label: 'סרגל תחתון', target: 'footer' }
 ]
 
 const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -36,6 +49,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const HEADER = 80
   const [active, setActive] = useState('hero')
+  const [isMobile, setIsMobile] = useState(false)
 
   /** מפה שמכילה את יחס-החשיפה הנוכחי של כל מקטע */
   const ratiosRef = useRef<Record<string, number>>({})
@@ -92,6 +106,13 @@ export default function Header() {
     }
   }
 
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 640)
+    checkScreen()
+    window.addEventListener('resize', checkScreen)
+    return () => window.removeEventListener('resize', checkScreen)
+  }, [])
+
   return (
     <header className={styles.header} onMouseMove={handleMouseMove} role="navigation" aria-label="Main Navigation">
       <span className={styles.neonLine} />
@@ -112,6 +133,15 @@ export default function Header() {
           ))}
         </div>
 
+        {!isMobile && (
+          <button className={styles.navLink} onClick={() => setOpen(!open)} aria-label="עוד תפריטים">
+            <div className={styles.navIcon}>
+              <HamburgerIcon size={18} />
+            </div>
+            <div className={styles.navLabel}>עוד</div>
+          </button>
+        )}
+
         <div className={styles.mobileToggle}>
           <button onClick={() => setOpen(!open)} aria-label={open ? 'סגור תפריט' : 'פתח תפריט'}>
             {open ? <X size={24} /> : <HamburgerIcon size={24} />}
@@ -120,9 +150,9 @@ export default function Header() {
 
         {open && (
           <div className={styles.mobileMenu} role="menu">
-            {navItems.map(({ label, target }) => (
-              <button key={target} className={`${styles.mobileLink} ${active === target ? styles.active : ''}`} onClick={() => scrollTo(target)} role="menuitem" aria-label={`מעבר אל ${label}`}>
-                {navIcons[target]} {label}
+            {(isMobile ? [...navItems, ...moreMenuItems] : moreMenuItems).map(({ label, target }) => (
+              <button key={target} className={styles.mobileLink} onClick={() => scrollTo(target)} role="menuitem" aria-label={`מעבר אל ${label}`}>
+                {navIcons[target] ?? <HelpCircle size={18} />} {label}
               </button>
             ))}
           </div>

@@ -353,3 +353,31 @@
 .headerScrolled {
   background: rgba(17, 17, 17, 0.8);
 }
+
+/* כפתור 'עוד' שמופיע רק בדסקטופ */
+.desktopMore {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+
+    button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 1rem;
+      padding: 0.5rem;
+      backdrop-filter: blur(6px);
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 1rem rgba(36, 113, 255, 0.25);
+      cursor: pointer;
+
+      &:hover {
+        color: #7dd3fc;
+        box-shadow: 0 0 1.25rem rgba(36, 113, 255, 0.4);
+      }
+    }
+  }
+}

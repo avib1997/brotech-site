@@ -3,7 +3,8 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 105vh;
+  min-height: 100vh;
+  height: auto;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -13,23 +14,29 @@
 }
 
 .bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
 
 .overlay {
   position: absolute;
-  bottom: 20rem;
-  left: 16%;
-  transform: translateX(-50%);
-  text-align: center;
+  bottom: 35%;
+  left: 3.75rem;
   z-index: 2;
+  text-align: left;
   color: white;
+  max-width: 450px;
+  line-height: 1.2;
 }
 
 .overlaytext {
   position: absolute;
-  bottom: 13rem;
+  bottom: 15%;
   right: 0rem; // במקום left
   width: 40%;
   text-align: right;
@@ -57,10 +64,12 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
   color: #82aaff;
+  text-wrap: balance; // רק אם נתמך
 }
 
 .subtitle {
@@ -138,7 +147,12 @@ a.secondary {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
     width: 100%;
+    height: 100%;
+    padding: 0 2rem;
   }
 
   .overlay {

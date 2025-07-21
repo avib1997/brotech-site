@@ -348,3 +348,138 @@
     }
   }
 }
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.termsModal {
+  background: #0a0f1a;
+  border: 1px solid #38bdf8;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 600px;
+  color: #e0f7ff;
+  position: relative;
+  text-align: right;
+  font-size: 1rem;
+  box-shadow: 0 0 40px rgba(130, 170, 255, 0.3);
+  animation: slideInUp 0.4s ease-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  color: #82aaff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.closeButton:hover {
+  transform: scale(1.2);
+}
+
+/* אנימציה בפתיחה */
+.slideIn {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+/* אנימציה בסגירה */
+.slideOut {
+  animation: slideOutDown 0.4s ease-in forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+.countdown {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #82aaff;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+}
+
+.countdownterms {
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #82aaff;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.progressTrack {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  margin-bottom: 1rem; // חדש
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #38bdf8, #2563eb);
+  transition: width 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.particles::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 18px;
+  width: 100%;
+  background: radial-gradient(circle, #82aaff 0.6px, transparent 0.6px);
+  background-size: 8px 8px;
+  animation: moveParticles 2s linear infinite;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@keyframes moveParticles {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}

@@ -2,10 +2,14 @@
 // ⚠️
 'use client'
 
+import { usePathname, useRouter } from 'next/navigation'
 import { HeroPic, Hero, Services, Faq, Contact, About, HappyClients, WebShowcase, OwnerIntro } from '@/components'
 import { useEffect } from 'react'
 
 export default function Home() {
+  const pathname = usePathname()
+  const router = useRouter()
+
   useEffect(() => {
     const el = document.querySelector('.hero-logo-wrapper') as HTMLElement | null
     if (!el) return
@@ -19,6 +23,12 @@ export default function Home() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pathname.startsWith('/home')) {
+      router.replace('/')
+    }
+  }, [pathname])
 
   return (
     <main className="main-wrapper">
