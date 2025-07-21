@@ -2,7 +2,6 @@
 
 .clientsSection {
   padding: 5rem 2rem;
-  //   background: #0a0a0a;
   text-align: center;
   color: #e0f7ff;
 }
@@ -143,38 +142,6 @@
   }
 }
 
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  margin-top: 4rem;
-  justify-content: center;
-  align-items: stretch;
-  max-width: 1200px;
-  margin-inline: auto;
-
-  @media (min-width: 1000px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 999px) and (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 599px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: 700px;
-  margin: 4rem auto 0;
-  padding: 0 1rem;
-}
-
 @media (max-width: 600px) {
   .title {
     font-size: 2rem;
@@ -193,15 +160,6 @@
   height: 1px;
   background: rgba(255, 255, 255, 0.1); // קו דק ועדין
   margin: 2rem 0;
-}
-
-.testimonialsGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin-top: 4rem;
-  max-width: 1200px;
-  margin-inline: auto;
 }
 
 .testimonialRow {
@@ -272,5 +230,362 @@
 
   @media (max-width: 900px) {
     display: none;
+  }
+}
+//--------------------------------
+
+@media (max-width: 768px) {
+  .testimonialCard {
+    width: 70vw;
+    padding: 0.8rem;
+  }
+
+  .arrowButton {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.indicator {
+  position: relative;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #444c63;
+  border: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+
+  &:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -2rem;
+    right: 50%;
+    transform: translateX(50%);
+    background: #1e293b;
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.indicator.active {
+  background: #82aaff;
+}
+
+/* ---------- קרוסלה ---------- */
+
+.swiper {
+  overflow: visible; /* מאפשר לראות שקופיות סמוכות */
+}
+
+/* כל כרטיס */
+.cardSlide {
+  width: 70vw;
+  max-width: 620px;
+  min-height: 25rem;
+  padding: 2rem;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .cardSlide {
+    width: 85vw;
+    min-height: 20rem;
+    padding: 1.5rem;
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+  margin: 4rem auto;
+  max-width: 1200px;
+  padding-inline: 4vw;
+
+  :global(.swiper) {
+    position: relative;
+    overflow: visible;
+  }
+
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    color: #1b64ff;
+    font-size: 1.8rem;
+    font-weight: 900;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgb(130, 170, 255);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &::after {
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+
+    &:hover {
+      scale: 1.35;
+      background: rgba(130, 170, 255, 0.25);
+      color: #a5c2ff;
+    }
+  }
+
+  :global(.swiper-button-prev) {
+    right: -10rem !important;
+    top: 11rem;
+  }
+
+  :global(.swiper-button-next) {
+    left: -10rem !important;
+    top: 11rem;
+  }
+
+  :global(.custom-pagination) {
+    position: absolute;
+    bottom: -2rem; /* מרווח מתחת לקרוסלה */
+    right: 0;
+    left: 0;
+    margin: auto;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.55rem;
+    z-index: 10;
+  }
+
+  :global(.custom-pagination .swiper-pagination-bullet) {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: #8a93b3;
+    transform: scale(0.9);
+    transition: background 0.25s, transform 0.25s;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  :global(.custom-pagination .swiper-pagination-bullet:hover::after) {
+    content: attr(data-label);
+    position: absolute;
+    top: -2rem;
+    right: 50%;
+    transform: translateX(50%);
+    background: #1e293b;
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+
+  :global(.custom-pagination .swiper-pagination-bullet-active) {
+    background: #82aaff;
+    transform: scale(1.25);
+    opacity: 1;
+  }
+
+  :global(.swiper) {
+    position: relative;
+    overflow: visible;
+    padding-bottom: 4rem; /* מרווח לתחתית הקרוסלה */
+  }
+
+  @media (max-width: 768px) {
+    :global(.custom-pagination) {
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-35%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselWrapper {
+    :global(.swiper-button-next) {
+      left: 0.1rem !important;
+      width: 2.2rem;
+      height: 2.2rem;
+      font-size: 1.2rem;
+      top: 11rem;
+
+      &::after {
+        font-size: 1rem;
+      }
+    }
+
+    :global(.swiper-button-prev) {
+      right: 0.1rem !important;
+      width: 2.2rem;
+      height: 2.2rem;
+      font-size: 1.2rem;
+      top: 11rem;
+
+      &::after {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1400px) {
+  .carouselWrapper {
+    :global(.swiper-button-prev) {
+      right: 1rem !important;
+    }
+
+    :global(.swiper-button-next) {
+      left: 1rem !important;
+    }
+
+    :global(.swiper-button-prev),
+    :global(.swiper-button-next) {
+      width: 3.8rem;
+      height: 3.8rem;
+      font-size: 1.5rem;
+
+      &::after {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.quoteShort {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d0ecff;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  max-height: 6.2rem; /* גובה משוער ל־3 שורות */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: #82aaff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0;
+  margin-bottom: 1rem;
+
+  &:hover {
+    color: #a5c2ff;
+  }
+}
+
+.modalOverlay {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    pointer-events: auto;
+  }
+}
+
+.modalContentLarge {
+  background: #0a192f;
+  color: #d0ecff;
+  border-radius: 1.2rem;
+  padding: 2.5rem 3rem;
+  width: 100vw !important;
+  max-width: none !important;
+  height: 90vh !important;
+  max-height: none !important;
+  outline: 2px solid rgb(73, 73, 73); /* כדי לראות שהשורה תפסה */
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.3);
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #a5c2ff;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.modalTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #82aaff;
+}
+
+.modalQuote {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .modalContentLarge {
+    width: 94vw;
+    height: 85vh;
+    padding: 1.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+  }
+
+  .modalTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .modalQuote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-inline: 0.2rem;
+  }
+
+  .modalClose {
+    top: 0.7rem;
+    left: 0.7rem;
+    font-size: 1.3rem;
   }
 }

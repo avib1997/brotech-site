@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import styles from './Services.module.scss'
+import { useRef, useState } from 'react'
 
 const services = [
   {
@@ -53,6 +54,42 @@ const services = [
 ] as const
 
 export default function Services() {
+  const barRef = useRef<HTMLDivElement>(null)
+  const [downloadText, setDownloadText] = useState('הורדת המסמך')
+
+  function handleDownload() {
+    const bar = barRef.current
+    if (!bar) return
+
+    let progress = 0
+    setDownloadText('מוריד... 0%')
+
+    const interval = setInterval(() => {
+      progress += 5
+      bar.style.width = `${progress}%`
+      setDownloadText(`מוריד... ${progress}%`)
+
+      if (progress >= 100) {
+        clearInterval(interval)
+        setDownloadText('המסמך מוכן')
+
+        setTimeout(() => {
+          const link = document.createElement('a')
+          link.href = '/docs/brotech-services.pdf'
+          link.download = 'brotech-services.pdf'
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+
+          // אפקט סיום
+          bar.style.transition = 'all 0.5s ease'
+          bar.style.width = '0%'
+          setDownloadText('הורדת המסמך')
+        }, 1000)
+      }
+    }, 100)
+  }
+
   useEffect(() => {
     AOS.init({
       delay: 400,
@@ -108,7 +145,22 @@ export default function Services() {
             ))}
           </div>
         </div>
+
         <div className={styles.horizontalDivider}></div>
+        <div id="services-end" className={styles.downloadSection} data-aos="fade-up">
+          <h3 className={styles.downloadTitle}>רוצה לדעת עוד?</h3>
+          <p className={styles.downloadText}>הורד את תקציר השירותים שלנו, עם מחירים, טכנולוגיות ופרויקטים לדוגמה.</p>
+          <div className={styles.downloadWrapper}>
+            <button onClick={handleDownload} className={styles.downloadButton}>
+              <span className={styles.downloadIcon}>📄</span>
+              {downloadText}
+            </button>
+            <div className={styles.progressTrack}>
+              <div className={styles.progressFill} ref={barRef}></div>
+              <div className={styles.particles}></div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   )

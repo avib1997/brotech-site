@@ -32,8 +32,23 @@ export default function Hero() {
 
           <p className={`fade-in-up-delayed ${styles.subtitle}`}>דברו איתנו – העתיד מחכה</p>
           <div className={`fade-in-up-delayed ${styles.buttons}`}>
-            <button className={styles.primary}>מחירים</button>
-            <button className={styles.secondary}>דבר איתי</button>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('services-end')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                })
+              }}
+              className={styles.primary}
+            >
+              מחירים
+            </a>
+
+            <a href="#contact" className={styles.secondary}>
+              דבר איתי
+            </a>
           </div>
         </div>
 

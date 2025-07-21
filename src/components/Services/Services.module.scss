@@ -440,3 +440,118 @@
     display: none;
   }
 }
+
+.downloadSection {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.downloadTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #82aaff;
+  margin-bottom: 1rem;
+}
+
+.downloadText {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.downloadWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.downloadButton {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  // border: 2px solid rgba(255, 255, 255, 0.6);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.downloadIcon {
+  animation: floatIcon 2s infinite ease-in-out;
+}
+
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.progressTrack {
+  position: relative;
+  width: 500px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .progressTrack {
+    width: 100%;
+  }
+}
+
+.progressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #38bdf8, #2563eb);
+  transition: width 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.particles::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 18px;
+  width: 100%;
+  background: radial-gradient(circle, #82aaff 0.6px, transparent 0.6px);
+  background-size: 8px 8px;
+  animation: moveParticles 2s linear infinite;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@keyframes moveParticles {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}

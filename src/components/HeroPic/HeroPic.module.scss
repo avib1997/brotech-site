@@ -79,32 +79,42 @@
   margin-right: 2rem;
 }
 
-.primary {
+.primary,
+a.primary {
+  display: inline-block;
   width: 9rem;
   background-color: #004cec;
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   transition: background 0.3s ease;
+  font-weight: 600;
 
   &:hover {
     background-color: #003097;
   }
 }
 
-.secondary {
+.secondary,
+a.secondary {
+  display: inline-block;
   width: 9rem;
   background-color: #4983ff;
   color: black;
-  padding: 0.8rem 2rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   transition: background 0.3s ease;
+  font-weight: 600;
 
   &:hover {
     background-color: #a5c2ff;

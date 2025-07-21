@@ -125,19 +125,6 @@
   animation: fadeOut 0.3s ease-in forwards;
 }
 
-.zoomIcon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.25rem 0.4rem;
-  border-radius: 0.5rem;
-  font-size: 1.1rem;
-  color: #fff;
-  pointer-events: none;
-  z-index: 2;
-}
-
 .previewIframe {
   width: 100%;
   height: 80vh;
@@ -236,5 +223,37 @@
     top: 0.3rem;
     right: 0.3rem;
     padding: 0.2rem 0.35rem;
+  }
+}
+
+.zoomIcon {
+  position: absolute;
+  bottom: 13rem;
+  right: -2rem;
+  font-size: 1.5rem;
+  // background: rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  padding: 0.4rem;
+  pointer-events: none;
+}
+
+.zoomIcon img {
+  width: 124px;
+  height: 124px;
+  animation: pulseClick 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseClick {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
   }
 }

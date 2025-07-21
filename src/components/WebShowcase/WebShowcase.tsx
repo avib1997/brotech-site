@@ -41,7 +41,9 @@ export default function WebShowcase() {
         {darkDesigns.map((design) => (
           <div key={design.id} className={styles.thumb} onClick={() => setSelected(design.id)}>
             <Image src={design.preview} alt={design.title} width={300} height={200} />
-            <div className={styles.zoomIcon}>🔍</div>
+            <div className={styles.zoomIcon}>
+              <Image src="/icons/hand-click.gif" alt="Click icon" width={36} height={36} unoptimized />{' '}
+            </div>
             <p className={styles.caption}>{design.title}</p>
           </div>
         ))}
@@ -52,7 +54,9 @@ export default function WebShowcase() {
         {lightDesigns.map((design) => (
           <div key={design.id} className={styles.thumb} onClick={() => setSelected(design.id)}>
             <Image src={design.preview} alt={design.title} width={300} height={200} />
-            <div className={styles.zoomIcon}>🔍</div>
+            <div className={styles.zoomIcon}>
+              <Image src="/icons/click-2.gif" alt="Click icon" width={36} height={36} unoptimized />{' '}
+            </div>
             <p className={styles.caption}>{design.title}</p>
           </div>
         ))}

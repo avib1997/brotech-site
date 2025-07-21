@@ -3,9 +3,19 @@
 
 import styles from './HappyClients.module.scss'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
+import { useState } from 'react'
+import { useRef } from 'react'
+
+/* ---------- Swiper ---------- */
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { Swiper as SwiperClass } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const stats = [
   {
@@ -132,6 +142,50 @@ function Logo({ src }: { src: string }) {
 // -------------------------------------------------------------------
 
 export default function HappyClients() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const swiperRef = useRef<SwiperClass | null>(null)
+
+  // const slides = Array.from({ length: Math.ceil(testimonials.length / 2) })
+  // const [active, setActive] = useState(0)
+  // const prev = () => setActive((a) => (a === 0 ? slides.length - 1 : a - 1))
+  // const next = () => setActive((a) => (a === slides.length - 1 ? 0 : a + 1))
+  // const goto = (i: number) => setActive(i)
+
+  useEffect(() => {
+    if (!swiperRef.current) return
+
+    if (activeIndex !== null) {
+      swiperRef.current.autoplay?.stop()
+    } else {
+      swiperRef.current.autoplay?.start()
+    }
+  }, [activeIndex])
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveIndex(null)
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [])
+
+  useEffect(() => {
+    const closeOnArrowClick = () => {
+      setActiveIndex(null)
+    }
+
+    const next = document.querySelector('.swiper-button-next')
+    const prev = document.querySelector('.swiper-button-prev')
+
+    next?.addEventListener('click', closeOnArrowClick)
+    prev?.addEventListener('click', closeOnArrowClick)
+
+    return () => {
+      next?.removeEventListener('click', closeOnArrowClick)
+      prev?.removeEventListener('click', closeOnArrowClick)
+    }
+  }, [])
+
   return (
     <section className={styles.clientsSection} id="clients">
       <h2 className={styles.title}>לקוחות שעובדים איתנו</h2>
@@ -170,44 +224,72 @@ export default function HappyClients() {
           ))}
         </div>
       </div>
-      {/* ציטוטים */}
-      <div className={styles.testimonialsGrid}>
-        {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, rowIdx) => {
-          const left = testimonials[rowIdx * 2]
-          const right = testimonials[rowIdx * 2 + 1]
 
-          return (
-            <div key={rowIdx} className={styles.testimonialRow}>
-              {left && (
+      <div className={styles.carouselWrapper}>
+        <Swiper
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{
+            el: '.custom-pagination',
+            clickable: true,
+            type: 'bullets',
+            renderBullet: function (index, className) {
+              const labels = ['SLS Systems', 'Bank of Israel', 'IDF/IAF', 'Shita Market', 'Hamazon']
+              return `<span class="${className}" data-label="${labels[index] || 'ללא שם'}" style="position:relative;"></span>`
+            }
+          }}
+          autoplay={{
+            delay: 1800,
+            disableOnInteraction: false
+          }}
+          centeredSlides
+          slidesPerView="auto"
+          spaceBetween={80}
+          loop
+          dir="rtl"
+          speed={1500}
+          className={styles.swiper}
+        >
+          {testimonials.map((t, idx) => {
+            return (
+              <SwiperSlide key={idx} className={styles.cardSlide}>
                 <div className={styles.testimonial}>
-                  <div className={styles.logos}>
-                    {Array.isArray(left.companyLogos) ? left.companyLogos.map((logo, i) => <Logo key={i} src={logo} />) : <Logo src={left.companyLogo ?? '/default-logo.svg'} />}
-                  </div>
-                  {left.companyName && <div className={styles.companyLabel}>{left.companyName}</div>}
-                  <p className={styles.quote} dangerouslySetInnerHTML={{ __html: `“${left.quote}”` }} />
-                  <p className={styles.stars}>{'⭐️'.repeat(left.rating)}</p>
-                  <p className={styles.name}>{left.name}</p>
-                  <p className={styles.position}>{left.position}</p>
-                </div>
-              )}
+                  <div className={styles.logos}>{Array.isArray(t.companyLogos) ? t.companyLogos.map((l, i) => <Logo key={i} src={l} />) : <Logo src={t.companyLogo ?? '/default-logo.svg'} />}</div>
+                  {t.companyName && <div className={styles.companyLabel}>{t.companyName}</div>}
 
-              {right && <div className={styles.verticalDivider} />}
+                  {/* טקסט מקוצר + כפתור */}
+                  <p className={styles.quoteShort} dangerouslySetInnerHTML={{ __html: t.quote.split('<br/><br/>')[0] }} />
+                  <button className={styles.readMoreButton} onClick={() => setActiveIndex(idx)}>
+                    להמשך קריאה...
+                  </button>
 
-              {right && (
-                <div className={styles.testimonial}>
-                  <div className={styles.logos}>
-                    {Array.isArray(right.companyLogos) ? right.companyLogos.map((logo, i) => <Logo key={i} src={logo} />) : <Logo src={right.companyLogo ?? '/default-logo.svg'} />}
-                  </div>
-                  {right.companyName && <div className={styles.companyLabel}>{right.companyName}</div>}
-                  <p className={styles.quote} dangerouslySetInnerHTML={{ __html: `“${right.quote}”` }} />
-                  <p className={styles.stars}>{'⭐️'.repeat(right.rating)}</p>
-                  <p className={styles.name}>{right.name}</p>
-                  <p className={styles.position}>{right.position}</p>
+                  <p className={styles.stars}>{'⭐️'.repeat(t.rating)}</p>
+                  <p className={styles.name}>{t.name}</p>
+                  <p className={styles.position}>{t.position}</p>
                 </div>
-              )}
-            </div>
-          )
-        })}
+
+                <div className={`${styles.modalOverlay} ${activeIndex === idx ? styles.show : ''}`} onClick={() => setActiveIndex(null)}>
+                  <div className={styles.modalContentLarge} onClick={(e) => e.stopPropagation()}>
+                    <button className={styles.modalClose} onClick={() => setActiveIndex(null)}>
+                      ✕
+                    </button>
+                    <h3 className={styles.modalTitle}>{t.companyName}</h3>
+                    <div className={styles.modalQuote} dangerouslySetInnerHTML={{ __html: t.quote }} />
+                  </div>
+                </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+        <div
+          className="custom-pagination"
+          style={{
+            opacity: activeIndex === null ? 1 : 0, // שקוף כש-modal פתוח
+            pointerEvents: activeIndex === null ? 'auto' : 'none',
+            transition: 'opacity .25s'
+          }}
+        />
       </div>
     </section>
   )
