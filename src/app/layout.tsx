@@ -7,6 +7,7 @@ import Header from '@/components/Header/Header'
 import LenisProvider from '@/styles/LenisProvider/LenisProvider'
 import Footer from '@/components/Footer/Footer'
 import '@/styles/animations.scss'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'BroTech',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LenisProvider>
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </LenisProvider>
       </body>
