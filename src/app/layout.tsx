@@ -9,7 +9,7 @@ import Footer from '@/components/Footer/Footer'
 import '@/styles/animations.scss'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
-import FloatingLogo from '@/components/FloatingLogo'
+// import FloatingLogo from '@/components/FloatingLogo'
 
 export const metadata: Metadata = {
   title: 'BroTech',
