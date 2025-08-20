@@ -1,0 +1,43 @@
+.wrapper {
+  position: fixed;
+  left: 2rem;
+  bottom: 2rem;
+  z-index: 1000;
+  display: inline-block;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(18px);
+    z-index: 0;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  &:hover::before {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, transparent 60%);
+    filter: blur(28px);
+  }
+}
+
+.logo {
+  position: relative;
+  z-index: 1;
+  opacity: 0.85;
+  transition: 
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}

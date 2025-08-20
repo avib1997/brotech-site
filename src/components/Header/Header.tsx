@@ -119,9 +119,7 @@ export default function Header() {
 
       <nav className={styles.navContainer}>
         <div className={styles.logoWrapper} onClick={() => scrollTo('hero')}>
-          {/* <div className={styles.logo}> */}
-          <Image src="/logo-bro.png" alt="BroTech logo" width={170} height={90} priority className={styles.logoImg} />
-          {/* </div> */}
+          <Image src="/B.png" alt="BroTech logo" width={180} height={0} priority className={styles.logoImg} />
         </div>
 
         <div className={styles.navItems}>
